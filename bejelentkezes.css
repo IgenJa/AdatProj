@@ -1,0 +1,54 @@
+body {
+    background-image: url("database.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.cimDiv {
+    width: 590px;
+    height: auto;
+    border: none;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: rgba(173, 173, 173, 0.581);
+    box-shadow: 0 0 30px 20px rgba(153, 153, 153, 0.541);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.cim {
+    font-size: 40px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.bejelentkezes {
+    background-color: rgba(173, 173, 173, 0.581);
+    border: none;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 40px;
+    box-shadow: 0 0 30px 20px rgba(153, 153, 153, 0.541);
+}
+
+.bejelentkezes button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="ugras"] {
+    margin-top: 50px;
+    padding: 20px 10px;
+    font-size: 15px;
+}
+
+
+button:hover { 
+    background-color: #b7b7b7;
+}
