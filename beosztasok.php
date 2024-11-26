@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beosztások megtekintése</title>
+    <link rel="stylesheet" href="beosztasok.css">
 </head>
 <body>
     <h1>Beosztások megtekintése</h1>
@@ -28,7 +29,7 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<table border='1'>";
+        echo "<table border='1' style='margin-top:50px'>";
         echo "<tr><th>ID</th><th>Dolgozó Azonosító</th><th>Részleg Azonosító</th><th>Dátum</th><th>Feladatkör</th><th>Munkaóraszám</th></tr>";
 
         // Eredmények megjelenítése
