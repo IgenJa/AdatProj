@@ -1,16 +1,17 @@
 CREATE DATABASE IF NOT EXISTS `munkahelyimuszakbeosztas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `munkahelyimuszakbeosztas`;
 
-DROP TABLE IF EXISTS `reszlegek`;
-DROP TABLE IF EXISTS `munkavallalo`;
+
+DROP TABLE IF EXISTS `muszakbeosztas`;
+DROP TABLE IF EXISTS `muszakbeosztasok`;
+DROP TABLE IF EXISTS `beosztott`;
+DROP TABLE IF EXISTS `vezeto`;
 DROP TABLE IF EXISTS `dolgozo`;
 DROP TABLE IF EXISTS `felelos_operator`;
-DROP TABLE IF EXISTS `muszakbeosztasok`;
-DROP TABLE IF EXISTS `vezeto`;
-DROP TABLE IF EXISTS `beosztott`;
-DROP TABLE IF EXISTS `muszakbeosztas`;
+DROP TABLE IF EXISTS `munkavallalo`;
+DROP TABLE IF EXISTS `reszlegek`;
 
--- Táblák létrehozása
+
 CREATE TABLE reszlegek (
     reszlegazonosito INT PRIMARY KEY,
     reszleg_neve VARCHAR(255),
@@ -68,7 +69,7 @@ CREATE TABLE muszakbeosztas (
     FOREIGN KEY (dolgozoazonosito) REFERENCES dolgozo(dolgozoazonosito)
 );
 
--- Táblák feltöltése véletlenszerű adatokkal
+
 INSERT INTO reszlegek (reszlegazonosito, reszleg_neve, reszleg_helye)
 VALUES
 (1, 'HR', 'Budapest'),
@@ -131,25 +132,7 @@ VALUES
 INSERT INTO felelos_operator (azonosito)
 VALUES
 (1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8),
-(9),
-(10),
-(11),
-(12),
-(13),
-(14),
-(15),
-(16),
-(17),
-(18),
-(19),
-(20);
+(11);
 
 INSERT INTO muszakbeosztasok (muszakbeosztas_id, dolgozoazonosito, reszlegazonosito, datum, feladatkor, munkaoraszam)
 VALUES
@@ -168,4 +151,4 @@ VALUES
 (13, 13, 3, '2024-01-02', 'Marketing kampány', 3),
 (14, 14, 4, '2024-01-02', 'Pénzügyi elemzés', 6),
 (15, 15, 5, '2024-01-02', 'Értékesítési stratégia', 3),
-(16, 16, 6, '2024-01-02', 'Ügyfélszolgálat', 24),
+(16, 16, 6, '2024-01-02', 'Ügyfélszolgálat', 24);

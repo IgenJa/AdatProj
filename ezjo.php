@@ -30,13 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        if (!is_null($row['dolgozoazonosito'])) {
+        if (!is_null($row['felelos_operator_azonosito'])) {
+            //ha operátor
+            header("Location: muszakbeosztasnyilvan.html");
+            exit();
+        } elseif (!is_null($row['dolgozoazonosito'])) {
             //ha dolgozó
             header("Location: beosztasok.html");
-            exit();
-        } elseif (!is_null($row['felelos_operator_azonosito'])) {
-            //ha operátor
-            header("Location: felelosoperatorok.html");
             exit();
         } else {
             //egyéb
@@ -54,22 +54,33 @@ $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bejelentkezés</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="bejelentkezes.css">
 </head>
 <body>
-    <h2>Bejelentkezés</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <label for="username">Felhasználónév:</label>
-        <input type="text" id="username" name="username" required>
-        <br><br>
-        <label for="password">Jelszó:</label>
-        <input type="password" id="password" name="password" required>
-        <br><br>
-        <button type="submit">Bejelentkezés</button>
-    </form>
+    
+    <div class="cimDiv">
+        <h1 class="cim">Munkahelyi műszakbeosztás</h1>
+        <h1 class="cim">Műszakbeosztások Bejelentkezés</h1>
+    </div>
+    
+    <div class="bejelentkezes">
+        <h1 class="felirat">Bejelentkezés</h1>
+        <div class="container">
+            <form action="ezjo.php" method="post">
+                <label for="username">Felhasználónév:</label>
+                <input type="text" id="username" name="username" required>
+                <br><br>
+                <label for="password">Jelszó:</label>
+                <input type="password" id="password" name="password" required>
+                <br><br>
+                <button type="submit">Bejelentkezés</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
