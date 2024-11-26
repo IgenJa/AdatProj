@@ -41,7 +41,7 @@ CREATE TABLE muszakbeosztasok (
     muszakbeosztas_id INT PRIMARY KEY,
     dolgozoazonosito INT,
     reszlegazonosito INT,
-    datum DATE,
+    datum DATE, !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!átír char
     feladatkor VARCHAR(255),
     munkaoraszam INT,
     FOREIGN KEY (dolgozoazonosito) REFERENCES dolgozo(dolgozoazonosito),
