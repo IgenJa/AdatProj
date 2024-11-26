@@ -1,18 +1,18 @@
 <?php
 // Adatbázis kapcsolat
 $servername = "localhost";
-$username = "root"; // Alapértelmezett felhasználónév
-$password = ""; // Alapértelmezett jelszó
+$username = "root";
+$password = "";
 $dbname = "munkahelyimuszakbeosztas";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Kapcsolat ellenőrzése
+//kapcsolat ellenőrzése
 if ($conn->connect_error) {
     die("Kapcsolati hiba: " . $conn->connect_error);
 }
 
-// Ha a mentés gombra kattintanak
+//mentés gomb
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     foreach ($_POST['muszakbeosztas_id'] as $key => $id) {
         $dolgozoazonosito = $_POST['dolgozoazonosito'][$key];
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $feladatkor = $_POST['feladatkor'][$key];
         $munkaoraszam = $_POST['munkaoraszam'][$key];
 
-        // Adatbázis frissítése
+        //frissít
         $updateSql = "UPDATE muszakbeosztasok 
                       SET dolgozoazonosito = '$dolgozoazonosito',
                           reszlegazonosito = '$reszlegazonosito',
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "<p>Adatok frissítve!</p>";
 }
 
-// Adatok lekérdezése
+//adatok lekérdezése
 $sql = "SELECT muszakbeosztas_id, dolgozoazonosito, reszlegazonosito, datum, feladatkor, munkaoraszam FROM muszakbeosztasok";
 $result = $conn->query($sql);
 ?>
