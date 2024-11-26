@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } elseif (!is_null($row['dolgozoazonosito'])) {
             //ha dolgozó
-            header("Location: beosztasok.html");
+            header("Location: beosztasok.php");
             exit();
         } else {
             //egyéb
